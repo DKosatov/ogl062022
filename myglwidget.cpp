@@ -12,6 +12,10 @@ MyGLWidget::MyGLWidget(QWidget* parent):
     this->rad=0.1;
     this->hi=0.1;
     zoom=-2;
+    start_x=0;
+    start_y=0;
+    xRot=0;
+    yRot=0;
 }
 
 void MyGLWidget::initializeGL()
@@ -138,12 +142,15 @@ void MyGLWidget::wheelEvent(QWheelEvent *event)
 
 void MyGLWidget::mousePressEvent(QMouseEvent *e)
 {
-    mPos = e->pos();
+    start_x=e->pos().x();
+    start_y=e->pos().y();
 }
 
 void MyGLWidget::mouseMoveEvent(QMouseEvent *e)
 {
-    xRot = 1/M_PI * (e->pos().y()-mPos.y());
-    yRot = 1/M_PI * (e->pos().x()-mPos.x());
+    xRot = xRot + (e->pos().y() - start_y)/3;
+    yRot = yRot + (e->pos().x() - start_x)/3;
+    start_x=e->pos().x();
+    start_y=e->pos().y();
     update();
 }

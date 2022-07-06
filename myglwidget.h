@@ -15,13 +15,13 @@ public:
     int num = 1;
     int count = 0;
     float point = 0.0;
+    int start_x,start_y;
 
 protected:
     POINTFLOAT pos={0,0};
     int c1=0;
 
     float xRot, yRot;
-    QPoint mPos;
     QTimer tmr;
     float zoom;
     void draw_cylinder(GLfloat, GLfloat, GLfloat, GLubyte, GLubyte, GLubyte);
