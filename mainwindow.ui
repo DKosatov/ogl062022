@@ -97,7 +97,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Длинна</string>
+        <string>Длина</string>
        </property>
       </widget>
      </item>
